@@ -1,6 +1,7 @@
+import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Expenses from "./components/Expenses";
+import Expenses from "./components/Expenses/Expenses";
 
 function App() {
   const expenses = [
@@ -25,8 +26,18 @@ function App() {
     },
   ];
 
+  // return React.createElement(
+  //   'div',
+  //   {},
+  //   React.createElement('h2',{style: {textAlign: "center"}},"Schedule"),
+  //   React.createElement(Expenses,{items: expenses})
+  // )
+
   return (
-    <Expenses items={expenses}/>
+    <div>
+      <h2 style={{textAlign:"center"}}>Schedule</h2>
+      <Expenses items={expenses}/>
+    </div>
   );
 }
 
