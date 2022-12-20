@@ -2,19 +2,18 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 function ExpenseForm() {
-    const [enteredTitle, setEnteredTitle] = useState('');
-    const [enteredAmount,setEnteredAmount] = useState('');
-    const [enteredDate,setEnteredDate] = useState('');
-    //console.log(enteredTitle,enteredAmount,enteredDate)
-
+  const [enteredTitle, setEnteredTitle] = useState("");
+  const [enteredAmount, setEnteredAmount] = useState("");
+  const [enteredDate, setEnteredDate] = useState("");
+  //console.log(enteredTitle,enteredAmount,enteredDate)
 
   //atau gunakan 1 state
-//   const [userInput, setUserInput] = useState({
-//     enteredTitle: "",
-//     enteredAmount: "",
-//     enteredDate: "",
-//   });
-//   console.log(userInput)
+  //   const [userInput, setUserInput] = useState({
+  //     enteredTitle: "",
+  //     enteredAmount: "",
+  //     enteredDate: "",
+  //   });
+  //   console.log(userInput)
 
   //vanila JS
   //document.getElementById('').addEventListener('click',(event)=>{})
@@ -30,31 +29,31 @@ function ExpenseForm() {
   };
 
   const amountChangeHandler = (event) => {
-   setEnteredAmount(event.target.value);
+    setEnteredAmount(event.target.value);
 
-      // kalau bergantung kepada prevState untuk diubah harap gunakan function
+    // kalau bergantung kepada prevState untuk diubah harap gunakan function
     //   setUserInput((prevState) => {
     //     return { ...prevState, enteredAmount: event.target.value };
     //   });
   };
 
   const dateChangeHandler = (event) => {
-   setEnteredDate(event.target.value);
+    setEnteredDate(event.target.value);
 
-      // kalau bergantung kepada prevState untuk diubah harap gunakan function
+    // kalau bergantung kepada prevState untuk diubah harap gunakan function
     //   setUserInput((prevState) => {
     //     return { ...prevState, enteredDate: event.target.value };
     //   });
   };
 
-  const submitHandler = (event)=>{
+  const submitHandler = (event) => {
     event.preventDefault();
-    
+
     const expenseData = {
-        title : enteredTitle,
-        amount : enteredAmount,
-        date : new Date(enteredDate)
-    }
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate),
+    };
 
     //yang menggunakan object
     // const expenseData = {
@@ -62,9 +61,11 @@ function ExpenseForm() {
     //     amount : userInput.enteredAmount,
     //     date : new Date(userInput.enteredDate)
     // }
-        
-    console.log(expenseData)
 
+    console.log(expenseData);
+    setEnteredTitle("");
+    setEnteredAmount("");
+    setEnteredDate("");
   };
 
   return (
@@ -72,7 +73,11 @@ function ExpenseForm() {
       <div className="new-expense__control">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={titleChangeHandler} />
+          <input
+            type="text"
+            value={enteredTitle}
+            onChange={titleChangeHandler}
+          />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
@@ -80,6 +85,7 @@ function ExpenseForm() {
             type="number"
             min="0.01"
             step="0.01"
+            value={enteredAmount}
             onChange={amountChangeHandler}
           />
         </div>
@@ -89,6 +95,7 @@ function ExpenseForm() {
             type="date"
             min="2019-01-01"
             max="2023-12-31"
+            value={enteredDate}
             onChange={dateChangeHandler}
           />
         </div>
