@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
+import ExpensesFilter from "./components/Expenses/ExpensesFilter";
 
 
 function App() {
@@ -35,10 +36,16 @@ function App() {
   //   React.createElement(Expenses,{items: expenses})
   // )
 
+  const addExpenseHandler = expense =>{
+
+    const saveExpense = expense
+    console.log(saveExpense)
+  }
+
   return (
     <div>
       <h2 style={{textAlign:"center"}}>Schedule</h2>
-      <NewExpense/>
+      <NewExpense onAddExpense={addExpenseHandler}/>
       <Expenses items={expenses}/>
     </div>
   );
