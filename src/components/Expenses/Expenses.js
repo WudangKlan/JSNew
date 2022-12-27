@@ -19,10 +19,10 @@ function Expenses(props) {
 
   // selain turnary conditon bisa digunakan cara ini
   //--------------------------------------------
-  let expensesList = <p> No Expenses</p>;
+  let expensesContent = <p> No Expenses</p>;
 
   if (filteredExpenses.length > 0)
-    expensesList = filteredExpenses.map((expense) => (
+    expensesContent = filteredExpenses.map((expense) => (
       <ExpensesItem
         key={expense.id}
         date={expense.date}
@@ -70,7 +70,7 @@ function Expenses(props) {
             ))
           } cara lain.......................*/}
         
-          {expensesList}
+          {expensesContent}
       </Card>
     </div>
   );
