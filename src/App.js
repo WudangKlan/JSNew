@@ -3,7 +3,8 @@ import logo from "./logo.svg";
 import "./App.css";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
-import ExpensesFilter from "./components/Expenses/ExpensesFilter";
+
+
 
 const DUMMY_EXPENSES = [
   {
@@ -44,6 +45,7 @@ function App() {
     });
 
   };
+
 
   return (
     <div>
