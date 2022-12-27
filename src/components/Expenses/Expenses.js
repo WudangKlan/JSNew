@@ -3,6 +3,7 @@ import ExpensesItem from "./ExpensesItem";
 import "./Expenses.css";
 import Card from "../UI/Card";
 import ExpensesFilter from "./ExpensesFilter";
+import ExpensesList from "./ExpensesList";
 
 function Expenses(props) {
   const { items } = props;
@@ -19,17 +20,7 @@ function Expenses(props) {
 
   // selain turnary conditon bisa digunakan cara ini
   //--------------------------------------------
-  let expensesContent = <p> No Expenses</p>;
-
-  if (filteredExpenses.length > 0)
-    expensesContent = filteredExpenses.map((expense) => (
-      <ExpensesItem
-        key={expense.id}
-        date={expense.date}
-        title={expense.title}
-        amount={expense.amount}
-      />
-    ));
+  
   //--------------------------------------------
 
   return (
@@ -70,7 +61,7 @@ function Expenses(props) {
             ))
           } cara lain.......................*/}
         
-          {expensesContent}
+          <ExpensesList items={filteredExpenses}/>
       </Card>
     </div>
   );
