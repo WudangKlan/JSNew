@@ -4,6 +4,7 @@ import "./Expenses.css";
 import Card from "../UI/Card";
 import ExpensesFilter from "./ExpensesFilter";
 import ExpensesList from "./ExpensesList";
+import ExpensesChart from "./ExpensesChart";
 
 function Expenses(props) {
   const { items } = props;
@@ -18,10 +19,7 @@ function Expenses(props) {
     return expense.date.getFullYear().toString() === selectedYear;
   });
 
-  // selain turnary conditon bisa digunakan cara ini
-  //--------------------------------------------
-  
-  //--------------------------------------------
+
 
   return (
     <div>
@@ -30,7 +28,8 @@ function Expenses(props) {
           selected={selectedYear}
           onChangeFilteredYear={filteredYear}
         />
-
+       
+        <ExpensesChart expenses={filteredExpenses}/>
         {/* {
           // turnary codition ...............
           filteredExpenses.length == 0 ? (
